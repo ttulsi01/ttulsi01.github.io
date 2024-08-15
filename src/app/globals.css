@@ -197,3 +197,106 @@ body , html {
     font-size: 0.9rem;
   }
 }
+
+/* Projects page */
+
+.projects-container {
+  padding: 2rem;
+  background-color: var(--background-color); /* Match your site's theme */
+  text-align: center;
+}
+
+.projects-section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 4rem;
+  font-family: var(--font-family);
+  color: var(--primary-color); /* Use a color from your palette */
+}
+
+.projects-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2rem; /* Increased gap for better spacing */
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: linear-gradient(135deg, var(--tertiary-color), var(--background-color));
+  color: var(--text-color);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+  font-family: var(--font-family);
+  transition: transform 0.2s, box-shadow 0.2s;
+  width: 100%;
+  max-width: 400px;
+  border: 1px solid var(--secondary-color);
+  min-height: 300px;
+  box-sizing: border-box;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.project-title {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: var(--primary-color);
+}
+
+.project-overview {
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.project-tech-stack {
+  margin-bottom: 1.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.project-tech {
+  background: var(--primary-color);
+  color: var(--background-color);
+  padding: 0.3rem 0.7rem;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+.project-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: bold;
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--tertiary-color);
+  border-radius: 5px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.project-link:hover {
+  background: var(--primary-color);
+  color: var(--background-color);
+}
+
+@media (min-width: 600px) {
+  .project-card {
+    width: calc(50% - 2rem);
+  }
+}
+
+@media (min-width: 900px) {
+  .project-card {
+    width: calc(33.333% - 2rem);
+  }
+}
