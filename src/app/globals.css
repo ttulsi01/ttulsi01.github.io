@@ -3,31 +3,197 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --primary-color: #734930;  /* Dark brown */
+  --secondary-color: #BF8A6B; /* Light brown */
+  --tertiary-color: #D9C6BA; /* Beige */
+  --background-color: #eceae9; /* Off-white */
+  --text-color: #0D0D0D; /* Dark gray */
+  --button-hover-color: #BF8A6B; /* Light brown for hover effects */
+  --form-border-color: #D9C6BA; /* Beige for form borders */
+  --gradient-color1: #734930; /* For gradient effect */
+  --gradient-color2: #D9C6BA; /* For gradient effect */
+  --font-family: 'Montserrat', sans-serif; /* Chosen font-family */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+
+body , html {
+  font-family: var(--font-family); /* Apply global font-family */
+  background: var(--background-color);
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  animation: fadeIn 1.5s ease-in-out 0.3s forwards;
+  width: 100%;
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+}
+
+.about-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 85vh;
+  background: linear-gradient(to bottom, var(--gradient-color1) 0%, var(--gradient-color2) 40%, var(--background-color) 100%);
+  text-align: center;
+  padding: 5rem 1rem 1rem;
+  margin-top: 0;
+}
+
+.about-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+  color: var(--primary-color);
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.name {
+  font-weight: bold;
+  font-family: var(--font-family);
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+  font-size: calc(4rem + 2vw);
+  color: var(--primary-color);
+}
+
+.title {
+  font-family: var(--font-family);
+  color: var(--secondary-color);
+  text-transform: uppercase;
+  margin-top: 0;
+  font-size: calc(1rem + 1vw);
+}
+
+.introduction {
+  font-family: var(--font-family);
+  color: var(--text-color); /* Dark gray */
+  margin-top: 1rem;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.social-media-icons {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.social-media-icons a {
+  font-size: 2rem;
+  color: var(--text-color);
+  transition: color 0.3s ease;
+}
+
+.social-media-icons a:hover {
+  color: var(--secondary-color);
+}
+
+.resume-button {
+  display: inline-block;
+  margin-top: 2rem;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-family: var(--font-family);
+  text-transform: uppercase;
+  color: var(--text-color); /* Dark gray text color */
+  background-color: var(--tertiary-color); /* Beige background */
+  border: 1px solid var(--secondary-color); /* Light brown border */
+  border-radius: 5px;
+  text-decoration: none;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.resume-button:hover {
+  background-color: var(--secondary-color); /* Light brown on hover */
+  border-color: var(--primary-color); /* Dark brown border on hover */
+  transform: translateY(-2px);
+  cursor: pointer;
+}
+
+/* Media queries for finer control */
+@media (max-width: 768px) {
+  .name {
+    font-size: 6rem;
+  }
+
+  .title {
+    font-size: 1.25rem;
+  }
+
+  .about-content {
+    padding: 0 0.5rem;
+  }
+
+  .about-container {
+    height: auto;
+    padding-top: 6rem; 
+  }
+
+  .resume-button {
+    font-size: 0.9rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .introduction {
+    font-size: 1rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+  }
+
+  .nav-links li {
+    margin: 0.5rem 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .name {
+    font-size: 4rem;
+  }
+
+  .title {
+    font-size: 1rem;
+  }
+
+  .about-content {
+    padding: 0 0.25rem;
+  }
+
+  .about-container {
+    height: auto;
+    padding-top: 7rem;
+  }
+
+  .resume-button {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.7rem;
+    margin-top: 1rem;
+  }
+
+  .introduction {
+    font-size: 0.9rem;
   }
 }
