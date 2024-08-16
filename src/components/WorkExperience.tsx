@@ -1,6 +1,6 @@
 "use client";
 
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 interface Job {
   position: string;
@@ -68,21 +68,19 @@ const WorkExperience: React.FC = () => {
               <h3 className="accordion-title">
                 {job.position} @ <a href={job.companyLink} className="company-link" target="_blank" rel="noopener noreferrer">{job.company}</a>
               </h3>
-              <span className="accordion-arrow">
+              <span className={`accordion-arrow ${openIndex === index ? 'open' : ''}`}>
                 {openIndex === index ? '−' : '+'}
               </span>
             </div>
-            {openIndex === index && (
-              <div className="accordion-content">
-                <p className="job-duration-location">📅 {job.duration} | 📍 {job.location}</p>
-                <p className="job-description">{job.description}</p>
-                <div className="job-tools">
-                  {job.tools.map((tool, idx) => (
-                    <span key={idx} className="tool">{tool}</span>
-                  ))}
-                </div>
+            <div className={`accordion-content ${openIndex === index ? 'visible' : 'hidden'}`}>
+              <p className="job-duration-location">📅 {job.duration} | 📍 {job.location}</p>
+              <p className="job-description">{job.description}</p>
+              <div className="job-tools">
+                {job.tools.map((tool, idx) => (
+                  <span key={idx} className="tool">{tool}</span>
+                ))}
               </div>
-            )}
+            </div>
           </div>
         ))}
       </div>

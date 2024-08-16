@@ -201,6 +201,145 @@ body, html {
   transform: scale(1.05);
 }
 
+/* Work Experience Section */
+
+.work-experience-container {
+  max-width: 1200px;
+  font-family: var(--font-family);
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: var(--background-color);
+}
+
+.work-section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 4rem;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+
+.accordion-container {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.accordion-item {
+  border-bottom: 1px solid var(--secondary-color);
+  margin: 2rem 0;
+  transition: max-height 0.3s ease-out; /* Smooth transition */
+}
+
+.accordion-header {
+  background: var(--tertiary-color);
+  cursor: pointer;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: bold;
+  font-family: var(--font-family);
+  color: var(--primary-color);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.accordion-header:hover {
+  background-color: var(--secondary-color); /* Change background on hover */
+  color: var(--background-color); /* Invert text color on hover */
+}
+
+.accordion-title {
+  font-size: 1.5rem; /* Slightly larger font for the title */
+}
+
+.accordion-arrow {
+  font-size: 1.5rem;
+  transition: transform 0.3s ease; /* Smooth rotation */
+}
+
+.accordion-arrow.open {
+  transform: rotate(180deg); /* Rotate when open */
+}
+
+.accordion-content {
+  padding: 1rem;
+  background: var(--background-color);
+  color: var(--text-color);
+  border-top: 1px solid var(--secondary-color);
+  transition: opacity 0.3s ease; /* Fade in/out effect */
+}
+
+.accordion-content.hidden {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+}
+
+.accordion-content.visible {
+  max-height: 1000px; /* Arbitrary large value to ensure visibility */
+  opacity: 1;
+}
+
+.job-duration-location {
+  font-size: 1rem;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.job-description {
+  font-size: 1.1rem;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+
+.job-tools {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tool {
+  background: var(--primary-color);
+  color: var(--background-color);
+  padding: 0.3rem 0.6rem;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+.company-link {
+  color: var(--primary-color);
+  text-decoration: none;
+  font-weight: bold;
+  position: relative;
+  padding-bottom: 2px;
+  transition: color 0.3s ease, background-color 0.3s ease, padding 0.3s ease;
+}
+
+.company-link:hover {
+  color: var(--background-color); /* Darken slightly for readability */
+  background-color: var(--accent-color); /* Use accent color for better contrast */
+  padding: 0.3rem 0.6rem; /* Slightly increase padding */
+  border-radius: 4px;
+  text-decoration: underline;
+}
+
+.company-link::after {
+  content: " ↗";
+  font-size: 0.85em;
+  display: inline-block;
+  transform: translateX(5px);
+  opacity: 0;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.company-link:hover::after {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+
 /* Media queries for finer control */
 @media (max-width: 768px) {
   .name {
@@ -257,93 +396,4 @@ body, html {
   .introduction {
     font-size: 0.9rem;
   }
-}
-
-/* Work Experience */
-
-.work-experience-container {
-  max-width: 1200px;
-  font-family: var(--font-family);
-  margin: 0 auto;
-  padding: 2rem;
-  background-color: var(--background-color);
-}
-
-.work-section-title {
-  font-size: 2.5rem;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 4rem;
-  margin-bottom: 2rem;
-  color: var(--primary-color);
-}
-
-.accordion-container {
-  border-radius: 8px;
-  overflow: hidden;
-}
-
-.accordion-item {
-  border-bottom: 1px solid var(--secondary-color);
-  margin: 2rem 0;
-}
-
-.accordion-header {
-  background: var(--tertiary-color);
-  cursor: pointer;
-  padding: 1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: bold;
-  font-family: var(--font-family);
-  color: var(--primary-color);
-}
-
-.accordion-title {
-  font-size: 1.2rem;
-}
-
-.accordion-arrow {
-  font-size: 1.5rem;
-}
-
-.accordion-content {
-  padding: 1rem;
-  background: var(--background-color);
-}
-
-.job-duration-location {
-  font-size: 1rem;
-  color: var(--primary-color);
-  margin-bottom: 0.5rem;
-}
-
-.job-description {
-  font-size: 1.1rem;
-  color: var(--text-color);
-  margin-bottom: 1rem;
-}
-
-.job-tools {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.tool {
-  background: var(--primary-color);
-  color: var(--background-color);
-  padding: 0.3rem 0.6rem;
-  border-radius: 4px;
-  font-size: 1rem;
-}
-
-.company-link {
-  color: var(--primary-color);
-  text-decoration: none;
-}
-
-.company-link:hover {
-  text-decoration: underline;
 }
