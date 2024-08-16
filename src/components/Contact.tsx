@@ -10,19 +10,23 @@ const Contact: React.FC = () => {
   });
 
   const [formStatus, setFormStatus] = useState<string | null>(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-  // Marking handleSubmit as async to use await inside it
+  const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001';
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
-    // Basic validation (you can extend this)
+    // Basic validation
     if (!formData.name || !formData.email || !formData.message) {
       setFormStatus('Please fill out all fields.');
       return;
     }
 
+    setIsLoading(true); // Start loading
+
     try {
-      const response = await fetch('http://localhost:5001/contact', {
+      const response = await fetch(`${apiUrl}/contact`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -45,6 +49,8 @@ const Contact: React.FC = () => {
     } catch (error) {
       console.error('Error submitting form:', error);
       setFormStatus('Failed to send message. Please try again later.');
+    } finally {
+      setIsLoading(false); // End loading
     }
   };
 
@@ -61,17 +67,19 @@ const Contact: React.FC = () => {
             value={formData.name}
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             placeholder="Your Name"
+            required
           />
         </div>
         <div className="form-group">
           <label htmlFor="email">Email</label>
           <input
             type="email"
-            id="email"
+            id="email" 
             name="email"
             value={formData.email}
             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
             placeholder="Your Email"
+            required
           />
         </div>
         <div className="form-group">
@@ -82,10 +90,13 @@ const Contact: React.FC = () => {
             value={formData.message}
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
             placeholder="Your Message"
+            required
           />
         </div>
-        <button type="submit" className="submit-button">Send Message</button>
-        {formStatus && <p className="form-status">{formStatus}</p>}
+        <button type="submit" className="submit-button" disabled={isLoading}>
+          {isLoading ? 'Sending...' : 'Send Message'}
+        </button>
+        {formStatus && <p className="form-status" aria-live="polite">{formStatus}</p>}
       </form>
     </div>
   );

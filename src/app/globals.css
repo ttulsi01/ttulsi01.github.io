@@ -16,6 +16,21 @@
   --font-family: 'Montserrat', sans-serif; /* Chosen font-family */
 }
 
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary-color: #D9C6BA;  /* Light beige */
+    --secondary-color: #734930; /* Dark brown */
+    --tertiary-color: #49261B;  /* Darker brown */
+    --background-color: #1a1a1a; /* Dark background */
+    --text-color: #eceae9; /* Off-white text */
+    --button-hover-color: #734930; /* Dark brown for hover effects */
+    --form-border-color: #734930; /* Dark brown for form borders */
+    --gradient-color1: #49261B; /* Darker brown for gradient effect */
+    --gradient-color2: #1a1a1a; /* Dark background for gradient effect */
+    --accent-color: #F4A261; /* A contrasting accent color */
+  }
+}
+
 body, html {
   font-family: var(--font-family); /* Apply global font-family */
   background: var(--background-color);
@@ -24,6 +39,7 @@ body, html {
   height: 100%;
   animation: fadeIn 1.5s ease-in-out 0.3s forwards;
   width: 100%;
+  color: var(--text-color);
 }
 
 @keyframes fadeIn {
@@ -37,7 +53,7 @@ body, html {
   }
 }
 
-/* About Section */
+/* Update all your sections with new background and text colors */
 
 .about-container {
   position: relative;
@@ -50,6 +66,7 @@ body, html {
   text-align: center;
   padding: 5rem 1rem 2rem;
   margin-top: 0;
+  color: var(--text-color);
 }
 
 .name {
@@ -339,65 +356,6 @@ body, html {
   opacity: 1;
 }
 
-
-/* Media queries for finer control */
-@media (max-width: 768px) {
-  .name {
-    font-size: 6rem;
-  }
-
-  .title {
-    font-size: 1.25rem;
-  }
-
-  .about-content {
-    padding: 0 0.5rem;
-  }
-
-  .about-container {
-    height: auto;
-    padding-top: 6rem;
-  }
-
-  .resume-button {
-    font-size: 0.9rem;
-    padding: 0.4rem 0.8rem;
-  }
-
-  .introduction {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .name {
-    font-size: 4rem;
-  }
-
-  .title {
-    font-size: 1rem;
-  }
-
-  .about-content {
-    padding: 0 0.25rem;
-  }
-
-  .about-container {
-    height: auto;
-    padding-top: 7rem;
-  }
-
-  .resume-button {
-    font-size: 0.8rem;
-    padding: 0.3rem 0.7rem;
-    margin-top: 1rem;
-  }
-
-  .introduction {
-    font-size: 0.9rem;
-  }
-}
-
 /* Contact Section */
 
 .contact-container {
@@ -489,3 +447,49 @@ textarea {
   }
 }
 
+/* Footer Section */
+.footer-container {
+  background-color: var(--primary-color); /* Dark brown */
+  color: var(--background-color); /* Off-white */
+  padding: 2rem 1rem;
+  text-align: center;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-description {
+  font-size: 1rem;
+}
+
+.footer-social-media {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-social-media a {
+  color: var(--background-color); /* Off-white */
+  font-size: 1.5rem;
+  transition: color 0.3s ease;
+}
+
+.footer-social-media a:hover {
+  color: var(--accent-color); /* Accent color */
+}
+
+/* Responsive footer */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+  }
+
+  .footer-social-media {
+    justify-content: center;
+  }
+}
