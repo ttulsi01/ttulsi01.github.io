@@ -7,10 +7,18 @@ import Contact from '@/components/Contact';
 const HomePage: React.FC = () => {
   return (
     <div>
-      <About />
-      <Projects />
-      <WorkExperience />
-      <Contact />
+      <section id="about-section">
+        <About />
+      </section>
+      <section id="projects-section">
+        <Projects />
+      </section>
+      <section id="work-experience-section">
+        <WorkExperience />
+      </section>
+      <section id="contact-section">
+        <Contact />
+      </section>
     </div>
     
   );
