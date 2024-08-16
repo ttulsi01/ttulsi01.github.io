@@ -21,7 +21,7 @@ const projectsData: Project[] = [
     link: 'https://github.com/ttulsi01/ChatPI',
   },
   {
-    title: 'ChatRegex for Detective Novels',
+    title: 'ChatRegex',
     overview: 'A REGEX-based chatbot for text analysis of crime novels.',
     techStack: ['Python', 'Regex'],
     link: 'https://github.com/ttulsi01/ChatRegex',
