@@ -31,7 +31,7 @@ const About: React.FC = () => {
             </a>
           </div>
           <a
-            href="https://drive.google.com/file/d/1pG_pvkuenUcXAgp13W5Y4gUf2mwGPZ0Z/view?usp=sharing"
+            href="https://drive.google.com/file/d/1tfjDRzBr8Cj6jNZgcK4IBw5OTEDXHXcz/view?usp=sharing"
             download
             className="resume-button"
             aria-label="Download Tulsi Tailor's Resume"
