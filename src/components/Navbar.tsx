@@ -14,15 +14,22 @@ const Navbar: React.FC = () => {
     const sections = document.querySelectorAll("section");
     const scrollPosition = window.scrollY + 100; // Adjust this for header height
 
+    let foundActive = false;
+
     sections.forEach((section) => {
-      if (
-        scrollPosition >= section.offsetTop &&
-        scrollPosition < section.offsetTop + section.offsetHeight
-      ) {
+      const sectionTop = section.offsetTop;
+      const sectionHeight = section.offsetHeight;
+
+      if (!foundActive && scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
         const sectionId = section.getAttribute("id");
         setActiveSection(sectionId);
+        foundActive = true;
       }
     });
+
+    if (!foundActive) {
+      setActiveSection(null);
+    }
   };
 
   useEffect(() => {
